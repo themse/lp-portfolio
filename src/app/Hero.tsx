@@ -11,7 +11,7 @@ export const Hero: FC = () => {
     <section className="hero">
       <Container>
         <div className="space-y-8">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center space-y-6">
             <h1 className="text-tpl-black-900 text-5xl leading-tight font-secondary">
               {t('firstName')} <br />
               {t('lastName')}
@@ -22,7 +22,7 @@ export const Hero: FC = () => {
                 {t('age', { age: 24 })}, {t('city')}
               </p>
             </div>
-            <div className="-rotate-90">
+            <div className="hidden md:block -rotate-90">
               <LanguageSwitcher />
             </div>
           </div>
