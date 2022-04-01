@@ -6,6 +6,7 @@ import { HistoryProvider } from 'common/history';
 import { Hero } from 'app/Hero';
 import i18n from 'common/i18n';
 import { About } from 'app/About';
+import { Skills } from 'app/skills/Skills';
 
 const App: FC = () => {
   return (
@@ -14,6 +15,7 @@ const App: FC = () => {
         <BaseLayout>
           <Hero />
           <About />
+          <Skills />
         </BaseLayout>
       </I18nextProvider>
     </HistoryProvider>
