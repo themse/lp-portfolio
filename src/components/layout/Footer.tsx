@@ -10,10 +10,8 @@ export const Footer: FC = () => {
       <Container>
         <div className="space-y-20">
           <div className="footer-top flex flex-col items-center space-y-5">
-            <p className="text-tpl-black-900 text-4xl font-secondary">
-              Contacts
-            </p>
-            <p className="text-tpl-black-900 text-lg leading-6 text-center">
+            <p className="text-4xl font-secondary">Contacts</p>
+            <p className="text-lg leading-6 text-center">
               Want to know more or just chat? <br /> You are welcome!
             </p>
             <Button>Send message</Button>

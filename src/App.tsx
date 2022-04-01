@@ -5,6 +5,7 @@ import { BaseLayout } from 'components/layout/BaseLayout';
 import { HistoryProvider } from 'common/history';
 import { Hero } from 'app/Hero';
 import i18n from 'common/i18n';
+import { About } from 'app/About';
 
 const App: FC = () => {
   return (
@@ -12,6 +13,7 @@ const App: FC = () => {
       <I18nextProvider i18n={i18n}>
         <BaseLayout>
           <Hero />
+          <About />
         </BaseLayout>
       </I18nextProvider>
     </HistoryProvider>

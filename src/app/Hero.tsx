@@ -8,17 +8,17 @@ export const Hero: FC = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="hero">
+    <section className="hero mb-28">
       <Container>
         <div className="space-y-8">
           <div className="flex flex-col md:flex-row md:justify-between md:items-center space-y-6">
-            <h1 className="text-tpl-black-900 text-5xl leading-tight font-secondary">
+            <h1 className="text-5xl leading-tight font-secondary">
               {t('firstName')} <br />
               {t('lastName')}
             </h1>
             <div>
-              <p className="text-tpl-black-900 text-base">{t('position')}</p>
-              <p className="text-tpl-black-900 text-base">
+              <p className="text-base">{t('position')}</p>
+              <p className="text-base">
                 {t('age', { age: 24 })}, {t('city')}
               </p>
             </div>
