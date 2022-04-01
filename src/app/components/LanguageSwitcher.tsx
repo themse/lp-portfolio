@@ -1,4 +1,7 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
+
+import { useHistory } from 'common/history';
+import { useTranslation } from 'react-i18next';
 
 const languages = [
   {
@@ -12,6 +15,28 @@ const languages = [
 ];
 
 export const LanguageSwitcher: FC = () => {
+  const history = useHistory();
+  const { location } = history;
+
+  const { i18n } = useTranslation();
+
+  const [currentLangUrl, setCurrentLangUrl] = useState(() =>
+    location.pathname === '/' ? languages[0].url : location.pathname
+  );
+
+  useEffect(() => {
+    const currentLang = currentLangUrl.replace('/', '');
+
+    if (i18n.language !== currentLang) {
+      i18n.changeLanguage(currentLang);
+    }
+  }, [currentLangUrl, i18n]);
+
+  const switchLang = (url: string): void => {
+    setCurrentLangUrl(url);
+    history.push(url);
+  };
+
   return (
     <ul className="flex">
       {languages.map(({ title, url }) => (
@@ -19,9 +44,20 @@ export const LanguageSwitcher: FC = () => {
           key={url}
           className="after:content-['|'] after:px-2 last:after:content-[''] last:after:px-0"
         >
-          <a href={url}>
-            <span className="uppercase">{title}</span>
-          </a>
+          <button
+            className={url === currentLangUrl ? 'pointer-events-none' : ''}
+            disabled={url === currentLangUrl}
+            type="button"
+            onClick={(): void => switchLang(url)}
+          >
+            <span
+              className={`${
+                currentLangUrl === url ? 'text-black' : 'text-tpl-grey-300'
+              } uppercase`}
+            >
+              {title}
+            </span>
+          </button>
         </li>
       ))}
     </ul>

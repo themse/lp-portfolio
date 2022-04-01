@@ -29,12 +29,14 @@ export const Nav: FC = () => {
     },
   ];
 
-  const [currentHash, setCurrentHash] = useState<string>(navigation[0].url);
+  const defaultHash = navigation[0].url;
+
+  const [currentHash, setCurrentHash] = useState<string>(defaultHash);
   const history = useHistory();
 
   useEffect(() => {
     const clearListen = history.listen(({ location }) => {
-      setCurrentHash(location.hash);
+      setCurrentHash(location.hash || defaultHash);
     });
 
     return () => {
@@ -47,7 +49,12 @@ export const Nav: FC = () => {
       <ul className="flex flex-wrap justify-evenly md:justify-between">
         {navigation.map(({ title, url }) => (
           <li key={url} className="mb-1">
-            <a href={url}>
+            <a
+              href={url}
+              className={
+                currentHash === url ? 'cursor-default pointer-events-none' : ''
+              }
+            >
               <span
                 className={`${
                   currentHash === url ? 'text-black' : 'text-tpl-grey-300'
