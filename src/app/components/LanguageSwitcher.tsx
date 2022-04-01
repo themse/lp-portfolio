@@ -2,12 +2,12 @@ import { FC } from 'react';
 
 const languages = [
   {
-    title: 'Eng',
-    url: '/eng',
+    title: 'En',
+    url: '/en',
   },
   {
-    title: 'Deu',
-    url: '/deu',
+    title: 'De',
+    url: '/de',
   },
 ];
 

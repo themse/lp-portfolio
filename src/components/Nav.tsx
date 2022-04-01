@@ -1,31 +1,34 @@
 import { FC, useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { useHistory } from 'tools/history';
-
-const navigation = [
-  {
-    title: 'Home',
-    url: '#home',
-  },
-  {
-    title: 'About me',
-    url: '#about-me',
-  },
-  {
-    title: 'Skills',
-    url: '#skills',
-  },
-  {
-    title: 'Portfolio',
-    url: '#portfolio',
-  },
-  {
-    title: 'Contacts',
-    url: '#contracts',
-  },
-];
+import { useHistory } from 'common/history';
 
 export const Nav: FC = () => {
+  const { t } = useTranslation();
+
+  const navigation = [
+    {
+      title: t('nav-home'),
+      url: '#home',
+    },
+    {
+      title: t('nav-about'),
+      url: '#about-me',
+    },
+    {
+      title: t('nav-skills'),
+      url: '#skills',
+    },
+    {
+      title: t('nav-portfolio'),
+      url: '#portfolio',
+    },
+    {
+      title: t('nav-contacts'),
+      url: '#contracts',
+    },
+  ];
+
   const [currentHash, setCurrentHash] = useState<string>(navigation[0].url);
   const history = useHistory();
 
