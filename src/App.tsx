@@ -7,6 +7,7 @@ import { Hero } from 'app/Hero';
 import i18n from 'common/i18n';
 import { About } from 'app/About';
 import { Skills } from 'app/skills/Skills';
+import { Portfolio } from 'app/Portfolio';
 
 const App: FC = () => {
   return (
@@ -16,6 +17,7 @@ const App: FC = () => {
           <Hero />
           <About />
           <Skills />
+          <Portfolio />
         </BaseLayout>
       </I18nextProvider>
     </HistoryProvider>
