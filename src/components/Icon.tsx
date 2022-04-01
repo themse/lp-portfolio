@@ -1,4 +1,4 @@
-import React, { FC, ObjectHTMLAttributes, memo } from 'react';
+import { FC, ObjectHTMLAttributes, memo } from 'react';
 
 type IconProps = ObjectHTMLAttributes<HTMLObjectElement> & {
   title: string;

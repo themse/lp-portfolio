@@ -11,7 +11,8 @@ module.exports = {
       },
 
       fontFamily: {
-        // primary: ['Some font Example', 'sans-serif'],
+        primary: ['Roboto-Medium', 'sans-serif'],
+        secondary: ['Roboto-Bold', 'sans-serif'],
       },
     },
 

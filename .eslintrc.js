@@ -13,5 +13,6 @@ module.exports = {
     'no-param-reassign': ['error', { props: true }],
     '@typescript-eslint/no-explicit-any': ['warn'],
     'react/react-in-jsx-scope': 'error',
+    'react/react-in-jsx-scope': 'off',
   },
 };
