@@ -6,7 +6,7 @@ import { SocialList } from 'components/SocialList';
 
 export const Footer: FC = () => {
   return (
-    <footer className="footer my-32">
+    <footer className="footer my-32" id="contacts">
       <Container>
         <div className="space-y-20">
           <div className="footer-top flex flex-col items-center space-y-5">

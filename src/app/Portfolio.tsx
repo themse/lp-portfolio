@@ -22,7 +22,7 @@ const workList = [
 
 export const Portfolio: FC = () => {
   return (
-    <section className="portfolio bg-tpl-grey-100 py-32">
+    <section className="portfolio bg-tpl-grey-100 py-32" id="portfolio">
       <Container>
         <div className="text-center space-y-12">
           <h2 className="font-secondary text-3xl">Portfolio</h2>

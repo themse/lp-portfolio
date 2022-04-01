@@ -28,7 +28,7 @@ const skillList = [
 
 export const Skills: FC = () => {
   return (
-    <section className="skills py-32">
+    <section className="skills py-32" id="skills">
       <Container>
         <div className="space-y-14">
           <h2 className="font-secondary text-3xl text-center">Skills</h2>

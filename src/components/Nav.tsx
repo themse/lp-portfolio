@@ -25,7 +25,7 @@ export const Nav: FC = () => {
     },
     {
       title: t('nav-contacts'),
-      url: '#contracts',
+      url: '#contacts',
     },
   ];
 

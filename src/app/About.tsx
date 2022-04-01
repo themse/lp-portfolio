@@ -4,7 +4,7 @@ import { Container } from 'components/Container';
 
 export const About: FC = () => {
   return (
-    <section className="about bg-tpl-grey-100 py-32">
+    <section className="about bg-tpl-grey-100 py-32" id="about-me">
       <Container>
         <div className="text-center space-y-8">
           <h2 className="font-secondary text-3xl">About me</h2>
