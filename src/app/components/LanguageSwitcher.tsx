@@ -30,7 +30,7 @@ export const LanguageSwitcher: FC = () => {
         return (
           <li
             key={url}
-            className="after:content-['|'] after:px-2 last:after:content-[''] last:after:px-0"
+            className="after:content-['|'] after:px-2 last:after:content-[''] last:after:px-0 text-4xl md:text-base"
           >
             <button
               className={isCurrentLangUrl ? 'pointer-events-none' : ''}
@@ -41,7 +41,7 @@ export const LanguageSwitcher: FC = () => {
               <span
                 className={`${
                   isCurrentLangUrl ? 'text-black' : 'text-tpl-grey-300'
-                } uppercase`}
+                } uppercase text-4xl md:text-base`}
               >
                 {title}
               </span>

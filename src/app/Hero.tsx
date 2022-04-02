@@ -2,12 +2,17 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Container } from 'components/Container';
-import { LanguageSwitcher } from './components/LanguageSwitcher';
+import { LanguageSwitcher } from 'app/components/LanguageSwitcher';
 import { useMediaQuery } from 'hooks/useMediaQuery';
+import { useMobileNav } from 'common/context/mobile-nav-context';
+import { Icon } from 'components/Icon';
 
 export const Hero: FC = () => {
   const { t } = useTranslation();
+
   const isSmallDevice = useMediaQuery('(max-width: 768px)');
+
+  const { isOpen, openNav } = useMobileNav();
 
   return (
     <section className="hero mt-9 mb-28">
@@ -29,6 +34,21 @@ export const Hero: FC = () => {
                 <LanguageSwitcher />
               </div>
             )}
+            <button
+              type="button"
+              className={`${
+                isOpen ? 'hidden' : ''
+              } fixed top-10 right-6 md:hidden z-10`}
+              onClick={(): void => openNav()}
+            >
+              <span className="sr-only">Open main menu</span>
+              <Icon
+                width={30}
+                height={30}
+                title="menu-open"
+                src="/icons/burger.svg"
+              />
+            </button>
           </div>
           <img className="mx-auto w-full" src="/images/hero.jpg" alt="hero" />
         </div>

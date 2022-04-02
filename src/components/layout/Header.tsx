@@ -5,7 +5,7 @@ import { Container } from 'components/Container';
 
 export const Header: FC = () => {
   return (
-    <header className="header sticky top-0 backdrop-blur-2xl">
+    <header className="header md:sticky top-0 md:backdrop-blur-2xl">
       <Container>
         <Nav />
       </Container>
