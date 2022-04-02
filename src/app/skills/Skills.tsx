@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Container } from 'components/Container';
 import { SkillItem } from './SkillItem';
@@ -27,12 +28,14 @@ const skillList = [
 ];
 
 export const Skills: FC = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="skills py-32" id="skills">
       <Container>
-        <div className="space-y-14">
-          <h2 className="font-secondary text-3xl text-center">Skills</h2>
-          <p className="text-lg text-center">I work in such programs as</p>
+        <div className="space-y-14 text-center">
+          <h2 className="font-secondary text-3xl">{t('skills-title')}</h2>
+          <p className="text-lg">{t('skills-description')}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
             {skillList.map((item) => (
               <SkillItem key={item.slug} {...item} />

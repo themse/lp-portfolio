@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Container } from 'components/Container';
 
@@ -21,11 +22,13 @@ const workList = [
 ];
 
 export const Portfolio: FC = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="portfolio bg-tpl-grey-100 py-32" id="portfolio">
       <Container>
         <div className="text-center space-y-12">
-          <h2 className="font-secondary text-3xl">Portfolio</h2>
+          <h2 className="font-secondary text-3xl">{t('portfolio-title')}</h2>
           <div className="space-y-24">
             {workList.map(({ title, imgSrc, url }) => (
               <div key={title} className="space-y-11 my-4">
