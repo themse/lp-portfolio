@@ -14,15 +14,21 @@ const languages = [
   },
 ];
 
+const defaultLang = languages[0].url;
+
 export const LanguageSwitcher: FC = () => {
   const history = useHistory();
   const { location } = history;
 
   const { i18n } = useTranslation();
 
-  const [currentLangUrl, setCurrentLangUrl] = useState(() =>
-    location.pathname === '/' ? languages[0].url : location.pathname
-  );
+  const [currentLangUrl, setCurrentLangUrl] = useState(defaultLang);
+
+  useEffect(() => {
+    setCurrentLangUrl(
+      location.pathname === '/' ? defaultLang : location.pathname
+    );
+  }, [location.pathname]);
 
   useEffect(() => {
     const currentLang = currentLangUrl.replace('/', '');

@@ -42,7 +42,7 @@ export const Nav: FC = () => {
     return () => {
       clearListen();
     };
-  }, []);
+  }, [defaultHash, history]);
 
   return (
     <nav className="pt-4 pb-6 mb-9 border-b border-tpl-grey-300">

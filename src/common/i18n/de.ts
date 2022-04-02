@@ -1,7 +1,7 @@
 const translation = {
   // navigation
   'nav-home': 'Startseite',
-  'nav-about': 'Über uns',
+  'nav-about': 'Über mich',
   'nav-skills': 'Fähigkeiten',
   'nav-portfolio': 'Portfolio',
   'nav-contacts': 'Kontakte',
