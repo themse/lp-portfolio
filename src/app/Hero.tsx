@@ -3,9 +3,11 @@ import { useTranslation } from 'react-i18next';
 
 import { Container } from 'components/Container';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
+import { useMediaQuery } from 'hooks/useMediaQuery';
 
 export const Hero: FC = () => {
   const { t } = useTranslation();
+  const isSmallDevice = useMediaQuery('(max-width: 768px)');
 
   return (
     <section className="hero mt-9 mb-28">
@@ -22,9 +24,11 @@ export const Hero: FC = () => {
                 {t('age', { age: 24 })}, {t('city')}
               </p>
             </div>
-            <div className="hidden md:block -rotate-90">
-              <LanguageSwitcher />
-            </div>
+            {!isSmallDevice && (
+              <div className="-rotate-90">
+                <LanguageSwitcher />
+              </div>
+            )}
           </div>
           <img className="mx-auto w-full" src="/images/hero.jpg" alt="hero" />
         </div>
