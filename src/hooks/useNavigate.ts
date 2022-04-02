@@ -14,6 +14,10 @@ export const useNavigate = (defaultHash: string): NavigateReturn => {
   const [currentHash, setCurrentHash] = useState<string>(defaultHash);
 
   useEffect(() => {
+    setCurrentHash(history.location.hash || defaultHash);
+  }, [history.location.hash, defaultHash]);
+
+  useEffect(() => {
     const clearListen = history.listen(({ location }) => {
       setCurrentHash(location.hash || defaultHash);
     });
