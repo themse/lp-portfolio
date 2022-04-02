@@ -1,7 +1,7 @@
-import { FC, useState, useEffect } from 'react';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useHistory } from 'common/history';
+import { useNavigate } from 'hooks/useNavigate';
 
 export const Nav: FC = () => {
   const { t } = useTranslation();
@@ -9,62 +9,53 @@ export const Nav: FC = () => {
   const navigation = [
     {
       title: t('nav-home'),
-      url: '#home',
+      hash: '#home',
     },
     {
       title: t('nav-about'),
-      url: '#about-me',
+      hash: '#about-me',
     },
     {
       title: t('nav-skills'),
-      url: '#skills',
+      hash: '#skills',
     },
     {
       title: t('nav-portfolio'),
-      url: '#portfolio',
+      hash: '#portfolio',
     },
     {
       title: t('nav-contacts'),
-      url: '#contacts',
+      hash: '#contacts',
     },
   ];
 
-  const defaultHash = navigation[0].url;
-
-  const [currentHash, setCurrentHash] = useState<string>(defaultHash);
-  const history = useHistory();
-
-  useEffect(() => {
-    const clearListen = history.listen(({ location }) => {
-      setCurrentHash(location.hash || defaultHash);
-    });
-
-    return () => {
-      clearListen();
-    };
-  }, [defaultHash, history]);
+  const { currentHash } = useNavigate(navigation[0].hash);
 
   return (
-    <nav className="pt-4 pb-6 mb-9 border-b border-tpl-grey-300">
+    <nav className="pt-4 pb-6 border-b border-tpl-grey-300" id="navbar">
       <ul className="flex flex-wrap justify-evenly md:justify-between">
-        {navigation.map(({ title, url }) => (
-          <li key={url} className="mb-1">
-            <a
-              href={url}
-              className={
-                currentHash === url ? 'cursor-default pointer-events-none' : ''
-              }
-            >
-              <span
-                className={`${
-                  currentHash === url ? 'text-black' : 'text-tpl-grey-300'
-                } text-lg font-secondary px-6 py-4`}
+        {navigation.map(({ title, hash }) => {
+          const isCurrentHash = hash === currentHash;
+
+          return (
+            <li key={hash} className="mb-1">
+              <a
+                href={hash}
+                className={
+                  isCurrentHash ? 'cursor-default pointer-events-none' : ''
+                }
               >
-                {title}
-              </span>
-            </a>
-          </li>
-        ))}
+                <span
+                  className={`${
+                    isCurrentHash ? 'text-black' : 'text-tpl-grey-300'
+                  } text-lg font-secondary px-6 py-4`}
+                >
+                  {title}
+                </span>
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );
